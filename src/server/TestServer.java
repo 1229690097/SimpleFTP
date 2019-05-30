@@ -8,12 +8,14 @@ import java.net.Socket;
 
 public class TestServer {
 
+	
+	
 	public static void main(String[] args) throws Exception {
+		
 		ServerSocket server = new ServerSocket(8989);
-
+		
 		while (true) {
 			Socket socket = server.accept();
-
 			InputStream input = socket.getInputStream();
 			OutputStream output = socket.getOutputStream();
 
@@ -21,7 +23,7 @@ public class TestServer {
 			int len = input.read(b);
 			System.out.println(new String(b, 0, len));
 
-			output.write("��ÿͻ��� ��".getBytes());
+			output.write("我是服务器".getBytes());
 			output.close();
 			input.close();
 			socket.close();
